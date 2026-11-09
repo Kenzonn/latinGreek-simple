@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latin &amp; Greek Study</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="study.js" defer></script>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">CLASSICAL LANGUAGES</p>
+    <h1>Latin &amp; Greek Study</h1>
+    <p>Review the forms, then test your recall.</p>
+    <nav aria-label="Languages"><a href="#latin">Latin</a><a href="#greek">Greek</a></nav>
+  </header>
+  <main>
+    <section id="latin">
+      <h2>Latin</h2>
+      <div class="card">
+        <h3>Declension flashcards</h3>
+        <fieldset id="declensions"><legend>Choose declensions to practice</legend></fieldset>
+        <p id="latin-prompt" class="prompt"></p>
+        <button id="latin-reveal" type="button">Reveal answer</button>
+        <button id="latin-next" type="button">Next card</button>
+        <p id="latin-answer" class="feedback" aria-live="polite"></p>
+      </div>
+      <details open>
+        <summary>Latin noun declension table</summary>
+        <p>Each row shows a common pattern for the listed gender. <strong>Varies</strong> marks forms without a single predictable ending.</p>
+        <h3 id="latin-singular-heading">Singular</h3>
+        <div id="latin-singular" class="table-wrap" tabindex="0" role="region" aria-labelledby="latin-singular-heading"></div>
+        <h3 id="latin-plural-heading">Plural</h3>
+        <div id="latin-plural" class="table-wrap" tabindex="0" role="region" aria-labelledby="latin-plural-heading"></div>
+        <p><a href="https://dcc.dickinson.edu/grammar/latin/case-endings-five-declensions">Allen and Greenough’s Latin grammar</a></p>
+      </details>
+    </section>
+    <section id="greek">
+      <h2>Greek</h2>
+      <div class="card">
+        <h3>Transliteration quiz</h3>
+        <p>Type the word in Latin letters. Capitalization and accents are optional. In this deck, rough breathing adds <b>h</b>.</p>
+        <p id="greek-word" class="prompt" lang="grc"></p>
+        <form id="greek-form">
+          <label for="greek-input">Your transliteration</label>
+          <div class="controls">
+            <input id="greek-input" type="text" required autocomplete="off" spellcheck="false" autocapitalize="none">
+            <button id="greek-check" type="submit">Check answer</button>
+            <button id="greek-next" type="button" disabled>Next word</button>
+          </div>
+        </form>
+        <div id="greek-feedback" class="feedback" aria-live="polite"></div>
+      </div>
+      <details>
+        <summary>Greek alphabet table</summary>
+        <p>Basic letter equivalents for this quiz. A word can also have breathing marks or combinations such as <span lang="grc">ου</span> (ou).</p>
+        <div id="greek-table" class="table-wrap" tabindex="0" role="region" aria-label="Greek alphabet table"></div>
+        <p><a href="https://ccel.org/s/smyth/grammar/html/smyth_1a_uni.htm">Smyth’s Greek grammar</a></p>
+      </details>
+    </section>
+  </main>
+</body>
+</html>
