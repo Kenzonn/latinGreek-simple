@@ -2,43 +2,43 @@ const latinCases = ["Nominative", "Genitive", "Dative", "Accusative", "Ablative"
 
 // Each case has a [singular, plural] pair, in the order above.
 const latinNouns = [
-  { declension: 1, meaning: "rose", stem: "ros", pattern: "Usually feminine, some masculine", forms: [
+  { declension: 1, meaning: "rose", stem: "ros", pattern: "1 f.", forms: [
     ["rosa", "rosae"], ["rosae", "rosārum"], ["rosae", "rosīs"],
     ["rosam", "rosās"], ["rosā", "rosīs"], ["rosa", "rosae"],
   ] },
-  { declension: 2, meaning: "lord", stem: "domin", pattern: "Masculine (-us)", forms: [
+  { declension: 2, meaning: "lord", stem: "domin", pattern: "2 m.", forms: [
     ["dominus", "dominī"], ["dominī", "dominōrum"], ["dominō", "dominīs"],
     ["dominum", "dominōs"], ["dominō", "dominīs"], ["domine", "dominī"],
   ] },
-  { declension: 2, meaning: "war", stem: "bell", pattern: "Neuter", forms: [
+  { declension: 2, meaning: "war", stem: "bell", pattern: "2 n.", forms: [
     ["bellum", "bella"], ["bellī", "bellōrum"], ["bellō", "bellīs"],
     ["bellum", "bella"], ["bellō", "bellīs"], ["bellum", "bella"],
   ] },
-  { declension: 3, meaning: "king", stem: "rēg", pattern: "Masculine / feminine, consonant stem", forms: [
+  { declension: 3, meaning: "king", stem: "rēg", pattern: "3 m./f.", forms: [
     ["rēx", "rēgēs"], ["rēgis", "rēgum"], ["rēgī", "rēgibus"],
     ["rēgem", "rēgēs"], ["rēge", "rēgibus"], ["rēx", "rēgēs"],
   ] },
-  { declension: 3, meaning: "body", stem: "corpor", pattern: "Neuter, consonant stem", forms: [
+  { declension: 3, meaning: "body", stem: "corpor", pattern: "3 n.", forms: [
     ["corpus", "corpora"], ["corporis", "corporum"], ["corporī", "corporibus"],
     ["corpus", "corpora"], ["corpore", "corporibus"], ["corpus", "corpora"],
   ] },
-  { declension: 3, meaning: "city", stem: "urb", pattern: "Masculine / feminine, mixed i-stem", forms: [
+  { declension: 3, meaning: "city", stem: "urb", pattern: "3 m./f.", forms: [
     ["urbs", "urbēs"], ["urbis", "urbium"], ["urbī", "urbibus"],
     ["urbem", "urbēs / urbīs"], ["urbe", "urbibus"], ["urbs", "urbēs"],
   ] },
-  { declension: 3, meaning: "sea", stem: "mar", pattern: "Neuter, i-stem", forms: [
+  { declension: 3, meaning: "sea", stem: "mar", pattern: "3 n.", forms: [
     ["mare", "maria"], ["maris", "marium"], ["marī", "maribus"],
     ["mare", "maria"], ["marī", "maribus"], ["mare", "maria"],
   ] },
-  { declension: 4, meaning: "hand", stem: "man", pattern: "Masculine / feminine", forms: [
+  { declension: 4, meaning: "hand", stem: "man", pattern: "4 m./f.", forms: [
     ["manus", "manūs"], ["manūs", "manuum"], ["manuī", "manibus"],
     ["manum", "manūs"], ["manū", "manibus"], ["manus", "manūs"],
   ] },
-  { declension: 4, meaning: "horn", stem: "corn", pattern: "Neuter", forms: [
+  { declension: 4, meaning: "horn", stem: "corn", pattern: "4 n.", forms: [
     ["cornū", "cornua"], ["cornūs", "cornuum"], ["cornū", "cornibus"],
     ["cornū", "cornua"], ["cornū", "cornibus"], ["cornū", "cornua"],
   ] },
-  { declension: 5, meaning: "thing", stem: "r", pattern: "Feminine / masculine", forms: [
+  { declension: 5, meaning: "thing", stem: "r", pattern: "5 f.", forms: [
     ["rēs", "rēs"], ["reī", "rērum"], ["reī", "rēbus"],
     ["rem", "rēs"], ["rē", "rēbus"], ["rēs", "rēs"],
   ] },

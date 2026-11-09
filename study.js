@@ -12,11 +12,18 @@ function renderTable(container, headings, rows, rowHeadings = false) {
   const body = table.createTBody();
   rows.forEach((values) => {
     const row = body.insertRow();
+    let previousCell;
     values.forEach((value, index) => {
+      if (rowHeadings && index > 1 && value === values[index - 1] && value !== "Varies") {
+        previousCell.colSpan += 1;
+        return;
+      }
       const cell = document.createElement(rowHeadings && index === 0 ? "th" : "td");
       if (cell.tagName === "TH") cell.scope = "row";
+      if (rowHeadings && value === "Varies") cell.className = "variable-ending";
       cell.append(value);
       row.append(cell);
+      previousCell = cell;
     });
   });
   byId(container).append(table);
@@ -36,15 +43,26 @@ function caseEndings(form, stem) {
   ).join(" / ");
 }
 
+const latinPatterns = new Map();
+latinNouns.forEach((noun) => {
+  if (!latinPatterns.has(noun.pattern)) latinPatterns.set(noun.pattern, []);
+  latinPatterns.get(noun.pattern).push(noun);
+});
+
 ["latin-singular", "latin-plural"].forEach((container, numberIndex) => {
-  renderTable(container, ["Decl.", "Gender / pattern", ...latinCases],
-    latinNouns.map(({ declension, pattern, stem, forms }) => [
-      String(declension),
-      pattern,
-      ...forms.map((pair) => caseEndings(pair[numberIndex], stem)),
-    ]),
-    true
-  );
+  const cases = numberIndex === 0
+    ? [["Nominativus", 0], ["Vocativus", 5], ["Accusativus", 3], ["Genitivus", 1], ["Dativus", 2], ["Ablativus", 4]]
+    : [["Nom. / Voc.", 0], ["Accusativus", 3], ["Genitivus", 1], ["Dat. / Abl.", 2]];
+  const rows = cases.map(([label, caseIndex]) => [
+    label,
+    ...Array.from(latinPatterns.values(), (nouns) => {
+      const endings = nouns.flatMap(({ forms, stem }) =>
+        caseEndings(forms[caseIndex][numberIndex], stem).split(" / ")
+      );
+      return endings.includes("Varies") ? "Varies" : [...new Set(endings)].join(" / ");
+    }),
+  ]);
+  renderTable(container, ["Casus", ...latinPatterns.keys()], rows, true);
 });
 renderTable("greek-table", ["Uppercase", "Lowercase", "Name", "Latin letters"], greekAlphabet);
 

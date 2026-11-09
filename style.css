@@ -31,9 +31,10 @@ table { border-collapse: collapse; width: 100%; }
 th, td { text-align: left; padding: .5rem .65rem; border-bottom: 1px solid #d5d9cd; white-space: nowrap; }
 thead { background: #e7eee5; }
 .table-wrap + h3 { margin-top: 1.5rem; }
-#latin-singular td:nth-child(n+3), #latin-plural td:nth-child(n+3) {
-  color: #285246;
-  font-weight: 650;
-}
+.latin-reference h3 { padding: .3rem; text-align: center; background: #285246; color: white; }
+.latin-reference .table-wrap { margin-top: 0; }
+.latin-reference th, .latin-reference td { border: 1px solid #c1c8bd; text-align: center; }
+.latin-reference th[scope="row"] { text-align: left; background: #e7eee5; }
+.latin-reference .variable-ending { color: #fff; background: #46534d; }
 tbody tr:nth-child(even) { background: #f6f4ed; }
 a { color: #285246; }
